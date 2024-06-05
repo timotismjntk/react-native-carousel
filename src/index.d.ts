@@ -1,0 +1,34 @@
+import React from 'react';
+import { type StyleProp, type ViewStyle } from 'react-native';
+export type CarouselProps<ItemT = any> = {
+  data: ItemT[];
+  renderItem: ({
+    item,
+    index,
+  }: {
+    item: ItemT;
+    index: number;
+  }) => React.ReactElement;
+  contentContainerStyle?: StyleProp<ViewStyle>;
+  loop?: boolean;
+  autoplay?: boolean;
+  autoplayInterval?: number;
+  pagination?: {
+    sizeRatio?: number;
+    activeDotColor: string;
+    inactiveDotColor?: string;
+    vertical?: boolean;
+    horizontalPosition?: 'left' | 'center' | 'right';
+    marginTop?: number;
+    isTapAble?: boolean;
+  };
+};
+export default function Carousel<ItemT>({
+  data,
+  renderItem,
+  contentContainerStyle,
+  loop,
+  autoplay,
+  autoplayInterval,
+  pagination,
+}: CarouselProps<ItemT>): React.JSX.Element;

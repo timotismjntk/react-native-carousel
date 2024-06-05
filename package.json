@@ -1,0 +1,32 @@
+{
+  "name": "@timotismjntk/react-native-carousel",
+  "version": "0.1.6",
+  "description": "A Robust carousel component without using any dependecies and without need complicated config, easy to use",
+  "main": "src/index.tsx",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timotismjntk/react-native-carousel.git"
+  },
+  "author": "timotismjntk <timoticrew@gmail.com> (https://github.com/timotismjntk)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timotismjntk/react-native-carousel/issues"
+  },
+  "homepage": "https://github.com/timotismjntk/react-native-carousel#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  }
+}
