@@ -1,6 +1,6 @@
 {
   "name": "@timotismjntk/react-native-carousel",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A Robust carousel component without using any dependecies and without need complicated config, easy to use",
   "main": "src/index.tsx",
   "types": "src/index.d.ts",

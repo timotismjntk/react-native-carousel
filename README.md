@@ -13,7 +13,7 @@ yarn add @timotismjntk/react-native-carousel
 ```
 
 ## Demo
-<img src="./src/assets/image/demo.gif"/>
+<img src="https://drive.usercontent.google.com/download?id=1gVd-3arSxdoAEUU9vfocFiXVj4rEX3Im&export=view&authuser=0"/>
 
 ## Usage
 

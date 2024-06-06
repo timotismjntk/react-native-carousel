@@ -106,9 +106,8 @@ export default function PaginationDot(props: IPaginationDotProps) {
       <View style={container}>
         {list.map((i) => {
           return (
-            <TouchableOpacity onPress={() => props?.onPressDot?.(i)}>
+            <TouchableOpacity key={i + ''} onPress={() => props?.onPressDot?.(i)}>
               <Dot
-                key={i}
                 idx={i}
                 sizeRatio={sizeRatio}
                 curPage={normalizedPage}

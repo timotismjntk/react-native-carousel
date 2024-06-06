@@ -1,12 +1,32 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';
+import { type GestureResponderEvent, StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';
 
 // lib
 import { useCarouselNative } from './package';
 
 // components
 import PaginationDot from './component/PaginationDot';
+
+export function useOnPressConfig(): (onPress: () => void) => {
+  onTouchMove: (event: GestureResponderEvent) => void;
+  onTouchEnd: (event: GestureResponderEvent) => void;
+} {
+  const [touchMove, setTouchMove] = useState(false);
+
+  return onPress => ({
+    onTouchMove: () => {
+      setTouchMove(true);
+    },
+    onTouchEnd: () => {
+      if (touchMove) {
+        setTouchMove(false);
+      } else {
+        onPress?.();
+      }
+    },
+  });
+}
 
 export type CarouselProps<ItemT = any> = {
   data: ItemT[];
