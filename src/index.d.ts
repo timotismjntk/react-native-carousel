@@ -1,5 +1,5 @@
 import React from 'react';
-import { type StyleProp, type ViewStyle } from 'react-native';
+import { type GestureResponderEvent, type StyleProp, type ViewStyle } from 'react-native';
 export type CarouselProps<ItemT = any> = {
   data: ItemT[];
   renderItem: ({
@@ -23,6 +23,10 @@ export type CarouselProps<ItemT = any> = {
     isTapAble?: boolean;
   };
 };
+export function useOnPressConfig(): (onPress: () => void) => {
+  onTouchMove: (event: GestureResponderEvent) => void;
+  onTouchEnd: (event: GestureResponderEvent) => void;
+}
 export default function Carousel<ItemT>({
   data,
   renderItem,
