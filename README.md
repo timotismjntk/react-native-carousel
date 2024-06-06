@@ -13,7 +13,7 @@ yarn add @timotismjntk/react-native-carousel
 ```
 
 ## Demo
-<img src="https://drive.usercontent.google.com/download?id=1gVd-3arSxdoAEUU9vfocFiXVj4rEX3Im&export=view&authuser=0"/>
+<img src="https://storage.googleapis.com/labura-storage/drivelabura/ezgif-3-0afe67a9b1-4ed13b291717556748-2757ac171717665716.gif"/>
 
 ## Usage
 
