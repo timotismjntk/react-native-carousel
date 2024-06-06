@@ -18,9 +18,10 @@ yarn add @timotismjntk/react-native-carousel
 ## Usage
 
 ```js
-import Carousel from '@timotismjntk/react-native-carousel';
+import Carousel, {useOnPressConfig} from '@timotismjntk/react-native-carousel';
 
 // ...
+const onPressConfig = useOnPressConfig(); // hooks for pressing function on carousel item
 
 return (
     <Carousel
@@ -43,12 +44,22 @@ return (
             borderRadius: 10,
         }}
         renderItem={({item, index}) => (
+          <View
+            key={index}
+            {...onPressConfig(() => {
+              try {
+                if (item?.img) {
+                  Linking.openURL(item.img);
+                }
+              } catch (error) {}
+            })}>
             <Image
                 key={index}
                 style={styles.imageCarousel}
                 source={{uri: item.img}}
                 resizeMethod="resize"
             />
+          </View>
         )}
         loop={true}
         autoplay={true}
@@ -101,6 +112,10 @@ type CarouselProps<ItemT = any> = {
     isTapAble?: boolean;
   };
 };
+export function useOnPressConfig(): (onPress: () => void) => {
+  onTouchMove: (event: GestureResponderEvent) => void;
+  onTouchEnd: (event: GestureResponderEvent) => void;
+}
 ```
 
 
