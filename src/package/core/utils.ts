@@ -91,7 +91,7 @@ export function equal(v1: any, v2: any): boolean {
   if (t1 !== t2) return false;
   if (t1 === 'object' && v1 !== null && v2 !== null) {
     if (
-      v1.length !== v2.length ||
+      (v1?.length || 0) !== (v2?.length || 0) ||
       Object.getOwnPropertyNames(v1).length !==
         Object.getOwnPropertyNames(v2).length
     )

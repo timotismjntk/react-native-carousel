@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { type GestureResponderEvent, StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';
 
 // lib
@@ -52,7 +52,7 @@ export type CarouselProps<ItemT = any> = {
   };
 };
 
-export default function Carousel<ItemT>({
+export default memo(function Carousel<ItemT>({
   data,
   renderItem,
   contentContainerStyle,
@@ -64,7 +64,7 @@ export default function Carousel<ItemT>({
   const [activeIndex, setActiveIndex] = useState(0);
   const carousel = useCarouselNative(
     {
-      carouselData: data.length,
+      carouselData: data?.length || 0,
       loop: loop,
     },
     [
@@ -97,7 +97,7 @@ export default function Carousel<ItemT>({
   return (
     <View style={styles.container}>
       <View style={contentContainerStyle} {...carousel.containerProps}>
-        {[...Array(data.length).keys()].map((idx) => {
+        {[...Array(data?.length || 0).keys()].map((idx) => {
           return (
             <View key={idx} {...carousel.carouselProps[idx]}>
               {renderItem({ item: data[idx]!, index: idx })}
@@ -125,7 +125,7 @@ export default function Carousel<ItemT>({
             sizeRatio={pagination.sizeRatio}
             vertical={pagination.vertical}
             curPage={activeIndex}
-            maxPage={data.length}
+            maxPage={data?.length || 0}
             onPressDot={(index) =>
               pagination.isTapAble && carousel.moveToIdx(index)
             }
@@ -134,7 +134,7 @@ export default function Carousel<ItemT>({
       )}
     </View>
   );
-}
+})
 
 const styles = StyleSheet.create({
   container: {

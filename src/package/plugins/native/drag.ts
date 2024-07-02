@@ -44,7 +44,7 @@ export default function Drag(
     if (
       dragActive ||
       !carousel.track.details ||
-      !carousel.track.details.length ||
+      !carousel.track.details?.length ||
       !carousel.options.drag
     )
       return;
@@ -104,7 +104,7 @@ export default function Drag(
   function rubberband(distance) {
     if (min === -Infinity && max === Infinity) return distance;
     const details = carousel.track.details;
-    const length = details.length;
+    const length = details?.length;
     const position = details.position;
     const clampedDistance = clamp(distance, min - position, max - position);
     if (length === 0) return 0;

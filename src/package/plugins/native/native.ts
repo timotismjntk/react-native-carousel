@@ -98,7 +98,7 @@ export default function Native<O>(
         });
       }
       carousel.options.trackConfig = config;
-      updatecarouselData(carousel.options.trackConfig.length);
+      updatecarouselData(carousel.options.trackConfig?.length);
     }
 
     function onLayout(e) {

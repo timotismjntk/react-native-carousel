@@ -242,7 +242,7 @@ export default function Track(
       getProp(entry, 'spacing', 0),
       getProp(entry, 'origin', 0),
     ]);
-    carouselDataCount = carouselData.length;
+    carouselDataCount = carouselData?.length || 0;
     if (!carouselDataCount) return;
     length = round(carouselData.reduce((acc, val) => acc + val[0] + val[1], 0));
 
@@ -257,15 +257,15 @@ export default function Track(
     let lastDistance;
     relativePositions = carouselData.reduce((acc, val) => {
       if (!acc) return [0];
-      const prev = carouselData[acc.length - 1];
-      let distance = acc[acc.length - 1] + (prev[0] + prev[2]) + prev[1];
+      const prev = carouselData[(acc?.length || 0) - 1];
+      let distance = acc[(acc?.length || 0) - 1] + (prev[0] + prev[2]) + prev[1];
 
       distance -= val[2];
-      if (acc[acc.length - 1] > distance) distance = acc[acc.length - 1];
+      if (acc[(acc?.length || 0) - 1] > distance) distance = acc[(acc?.length || 0) - 1];
       distance = round(distance);
       acc.push(distance);
       if (!lastDistance || lastDistance < distance)
-        maxRelativeIdx = acc.length - 1;
+        maxRelativeIdx = (acc?.length || 0) - 1;
       lastDistance = distance;
       return acc;
     }, null);
@@ -290,7 +290,7 @@ export default function Track(
       distance,
       timestamp: now(),
     });
-    if (measurePoints.length > 6) measurePoints = measurePoints.slice(-6);
+    if ((measurePoints?.length || 0) > 6) measurePoints = measurePoints.slice(-6);
   }
 
   function absToRel(idx) {
